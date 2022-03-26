@@ -1,0 +1,69 @@
+<link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+<script src="cb.js"></script>
+<div class="d-flex justify-content-between">
+    <h1 class="mt-4 text-center">Dashboard</h1>
+    <div class="left">
+        <div class="d-flex justify-content-sm-center"><a href="/profile"><p class="btn btn-dark">  User </a></p> 
+            <a href="/task" class="btn btn-light"> Task</a>
+               <a href="/users/logout" class="btn btn-light"> Logout</a></div>
+    </div>
+    
+</div>
+<p class="lead mb-3">Welcome <%= user.name %>
+</p>
+<p class="lead mb-3">My Courses</p>
+
+<iframe width="500" height="295" src="https://www.youtube.com/embed/rZ41y93P2Qo" title="YouTube video player"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+<div class="deadline">
+    Deadline = 26/03/2022
+    <div class="d-flex justify-content-sm"><p class="btn btn-dark" > 
+        <button id="mk"></button></p> 
+</div>
+<iframe width="500" height="295" src="https://www.youtube.com/embed/NWONeJKn6kc?start=1" title="YouTube video player"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+    <div class="deadline">
+        Deadline = 25/03/2022
+        <div class="d-flex justify-content-sm"><p class="btn btn-dark" > 
+            <button id="mk1"></button></p> 
+    </div>
+   
+
+    
+    <script>
+        let btn = document.querySelector('#mk');
+        btn.addEventListener('click', () => {
+            localStorage.setItem("video1 <%= user.name %>","completed")
+           
+        })
+        
+        let btn1 = document.querySelector('#mk1');
+        btn1.addEventListener('click', () => {
+            localStorage.setItem("video2 <%= user.name %>","completed")
+    
+        })
+        
+        setInterval(() => {
+            if(localStorage.getItem("video1 <%= user.name %>") === "completed"){
+                btn.innerText = "completed";
+            }
+            else{
+                btn.innerText = "marks as uncompleted";
+
+            }
+        }, 1000);
+        
+        setInterval(() => {
+            if(localStorage.getItem("video2 <%= user.name %>") === "completed"){
+                btn1.innerText = "completed";
+            }
+            else{
+                btn1.innerText = "marks as uncompleted";
+
+            }
+        }, 1000);
+        
+    </script>
+
